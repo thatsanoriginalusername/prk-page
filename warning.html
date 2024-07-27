@@ -10,10 +10,8 @@
     <div class="welcome-container">
         <h1>YOUR DEVICE HAS BEEN INFECTED :(</h1>
         <p class="warning-text">
-            Make sure to remove all the files from
-            your computer, else they will be deleted.
-            We will not be responsible for any damage
-            made to your device after this reset.
+            Make sure to remove all the files from your computer, else they will be deleted.
+            We will not be responsible for any damage made to your device after this reset.
             Thank you for listening carefully.
         </p>
         <p class="warning-text">
@@ -39,8 +37,9 @@
             感谢您的注意。
         </p>
         <p>Your computer will totally reset in <span id="countdown" class="countdown">10:00</span></p>
-        <audio id="warningAudio1" src="warning1.mp3" autoplay></audio>
-        <audio id="warningAudio2" src="warning2.mp3" autoplay></audio>
+        <audio id="warningAudio1" src="warning1.mp3" preload="auto"></audio>
+        <audio id="warningAudio2" src="warning2.mp3" preload="auto"></audio>
+        <button id="playButton" style="display:none;">Play Sound</button>
     </div>
     <script>
         function startCountdown(duration) {
@@ -67,10 +66,16 @@
             startCountdown(600);
             const warningAudio1 = document.getElementById('warningAudio1');
             const warningAudio2 = document.getElementById('warningAudio2');
+            const playButton = document.getElementById('playButton');
 
-            warningAudio1.play();
+            warningAudio1.play().catch(() => {
+                playButton.style.display = 'block';
+                playButton.onclick = function() {
+                    warningAudio1.play();
+                    playButton.style.display = 'none';
+                };
+            });
 
-            // Play the second audio after the first one ends
             warningAudio1.onended = function() {
                 warningAudio2.play();
             };
