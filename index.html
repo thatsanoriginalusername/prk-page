@@ -39,8 +39,11 @@
         <p>Your computer will totally reset in <span id="countdown" class="countdown">10:00</span></p>
         <audio id="warningAudio1" src="warning1.mp3" preload="auto"></audio>
         <audio id="warningAudio2" src="warning2.mp3" preload="auto"></audio>
-        <button id="playButton" style="display:none;">Play Sound</button>
+
+        <!-- Play Button -->
+        <button id="playButton" class="play-button">Click to Enable Warning Audio</button>
     </div>
+
     <script>
         function startCountdown(duration) {
             let timer = duration, minutes, seconds;
@@ -68,22 +71,14 @@
             const warningAudio2 = document.getElementById('warningAudio2');
             const playButton = document.getElementById('playButton');
 
-            warningAudio1.play().catch(() => {
-                playButton.style.display = 'block';
-                playButton.onclick = function() {
-                    warningAudio1.play();
-                    playButton.style.display = 'none';
+            playButton.addEventListener('click', function() {
+                warningAudio1.play();
+                playButton.style.display = 'none'; // Hide the button after clicking
+
+                warningAudio1.onended = function() {
+                    warningAudio2.play();
                 };
             });
-
-            warningAudio1.onended = function() {
-                warningAudio2.play();
-            };
-
-            // Or play the second audio at a specific time (e.g., after 5 seconds)
-            // setTimeout(function() {
-            //     warningAudio2.play();
-            // }, 5000);
         };
     </script>
 </body>
