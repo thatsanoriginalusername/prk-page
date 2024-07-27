@@ -8,18 +8,14 @@ body {
     background-color: #000; /* Black background */
 }
 
-body.login-page {
-    background-color: #000;
-}
-
 body.warning-page {
     background-color: #900; /* Dark red background */
 }
 
-.login-container, .welcome-container {
+.welcome-container {
     text-align: center;
     padding: 40px;
-    border: 2px solid #900; /* Dark red border */
+    border: 2px solid #f00; /* Red border */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2); /* Red shadow */
     background-color: #111; /* Darker background for container */
@@ -32,45 +28,11 @@ h1 {
     margin-bottom: 20px;
 }
 
-.input-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #fff;
-}
-
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #900; /* Dark red border */
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #222; /* Darker background for input */
-    color: #fff;
-}
-
-button {
-    padding: 10px 20px;
+.warning-text {
+    color: #f00; /* Red text */
     font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: #900; /* Dark red background */
-    color: #fff;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #700; /* Darker red on hover */
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .countdown {
@@ -80,8 +42,22 @@ button:hover {
     margin-top: 20px;
 }
 
-.warning-text {
-    color: #f00; /* Red text */
+/* Play Button Styles */
+.play-button {
+    margin-top: 20px;
+    padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
+    color: #fff;
+    background-color: #f00; /* Red background for button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2); /* Red shadow */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.play-button:hover {
+    background-color: #d00; /* Darker red on hover */
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4); /* Darker shadow on hover */
 }
