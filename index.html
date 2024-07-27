@@ -41,12 +41,9 @@
         <audio id="warningAudio2" src="warning2.mp3" preload="auto"></audio>
     </div>
 
-    <!-- Overlay -->
-    <div id="overlay" class="overlay"></div>
-
-    <!-- Popup Window -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
             <p>Click anywhere to enable the warning audio message.</p>
         </div>
     </div>
@@ -76,18 +73,15 @@
             startCountdown(600);
             const warningAudio1 = document.getElementById('warningAudio1');
             const warningAudio2 = document.getElementById('warningAudio2');
-            const popup = document.getElementById('popup');
-            const overlay = document.getElementById('overlay');
+            const modal = document.getElementById('modal');
 
             function playAudio() {
                 warningAudio1.play().catch(() => {
-                    // If autoplay is blocked, show the popup and overlay
-                    overlay.style.display = 'block';
-                    popup.style.display = 'block';
+                    // If autoplay is blocked, show the modal
+                    modal.style.display = 'block';
                     document.addEventListener('click', () => {
                         warningAudio1.play();
-                        overlay.style.display = 'none';
-                        popup.style.display = 'none';
+                        modal.style.display = 'none';
                     }, { once: true });
                 });
 
